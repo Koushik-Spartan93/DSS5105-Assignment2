@@ -62,6 +62,18 @@ def predict():
         "predicted_Yobs": round(y_pred, 2)
     })
 
+@app.route("/ate")
+def get_ate():
+    ate = sm_results.params['W']
+    p_value = sm_results.pvalues['W']
+    conf_int = sm_results.conf_int().loc['W']
+
+    return jsonify({
+        "ATE_estimate": round(ate, 3),
+        "p_value": round(p_value, 4),
+        "95%_CI": [round(conf_int[0], 3), round(conf_int[1], 3)]
+    })
+
 # ------------------------------------------
 # Run the Flask App
 # ------------------------------------------
