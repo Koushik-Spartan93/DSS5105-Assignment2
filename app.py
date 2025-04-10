@@ -34,7 +34,7 @@ sm_model = sm.OLS(df['Yobs'], df[['intercept', 'W', 'X']])
 sm_results = sm_model.fit()
 
 # Print coefficients for reference
-print(sm_results.summary())
+print(sm_results.summary().as_text(), flush=True)
 
 # ------------------------------------------
 # Flask Prediction Route
