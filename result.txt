@@ -1,2 +1,21 @@
+b) Report the estimated ATE (ˆ τ) and its statistical significance.
+
+Interpretation:
+	•	Intercept α = 95.97
+	•	Treatment effect τ = −9.11
+	•	Sustainability effect β = 1.51
+
+Participating in the carbon offset program is associated with a 9.1-point decrease in stakeholder engagement, on average, after controlling for sustainability spending.
+
+Since the p-value is very small (0.000), this effect is statistically significant at conventional levels.
+
 
 c) Briefly explain under what assumptions ˆ τ can be given a causal interpretation.
+
+The estimated treatment effect τ can be interpreted causally if the following assumptions hold:
+	1.	Unconfoundedness: There are no unobserved factors that influence both treatment and outcome, after controlling for spending.
+	2.	Overlap: All corporations had a chance to be either treated or untreated for all levels of spending.
+	3.	SUTVA: Each corporation’s engagement score is only affected by its own treatment status.
+
+if these are met, τ represents the Average Treatment Effect (ATE).
+
