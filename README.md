@@ -20,6 +20,10 @@ Where:
 
 ---
 
+output : 
+
+![image](https://github.com/user-attachments/assets/ece2b720-d853-4ce9-ab15-1c340e957f6c)
+
 
 
 
@@ -28,4 +32,7 @@ Explanation
 app.py: This Python script defines a Flask web application that trains a linear regression model using a dataset and provides an API endpoint (/predict) to estimate engagement scores based on treatment (W) and sustainability spending (X). It handles HTTP requests, performs the prediction, and returns results in JSON format.
 Dockerfile: The Dockerfile defines the environment needed to run the Flask app, including installing Python, required libraries, and setting up the application. It creates a portable image of your project.
 Containerization: Using Docker ensures the application runs consistently across different machines by packaging code, dependencies, and environment together. This improves reproducibility, simplifies deployment, and avoids the “it works on my machine” problem.
+
+
+
 
