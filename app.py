@@ -31,15 +31,14 @@ def predict():
 
     y_pred = model.predict([[W, X]])[0]
 
-    # Log the input/output
-    with open("output.txt", "a") as f:
-        f.write(f"Input W: {W}, X: {X} -> Predicted Y: {y_pred:.2f}\n")
+    try:
+        with open("output.txt", "a") as f:
+            f.write(f"Input W: {W}, X: {X} -> Predicted Y: {y_pred:.2f}\n")
+        print("✔️ Successfully wrote to output.txt")
+    except Exception as e:
+        print("❌ Failed to write to output.txt:", e)
 
-    return jsonify({
-        "W": W,
-        "X": X,
-        "predicted_Yobs": round(y_pred, 2)
-    })
+    return jsonify({"W": W, "X": X, "predicted_Yobs": round(y_pred, 2)})
 
 
 if __name__ == "__main__":
