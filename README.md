@@ -26,6 +26,8 @@ output :
 
 ![image](https://github.com/user-attachments/assets/fbd2bc6d-6ddf-401b-a447-9040e591d574)
 
+b) Report the estimated ATE (ˆ τ) and its statistical significance.
+![image](https://github.com/user-attachments/assets/416c2c85-a745-4174-b760-9d02e1259a40)
 
 
 Explanation
