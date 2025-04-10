@@ -6,6 +6,9 @@ import statsmodels.api as sm
 
 app = Flask(__name__)
 
+# ------------------------------------------
+# Prepare Dataset
+# ------------------------------------------
 data = {
     'Yobs': [137, 118, 124, 124, 120, 129, 122, 142, 128, 114,
              132, 130, 130, 112, 132, 117, 134, 132, 121, 128],
@@ -16,22 +19,26 @@ data = {
 }
 df = pd.DataFrame(data)
 
+# ------------------------------------------
+# Train scikit-learn model (for API prediction)
+# ------------------------------------------
+X_train = df[['W', 'X']]
+y_train = df['Yobs']
+sk_model = LinearRegression().fit(X_train, y_train)
 
-X_train = df[['W', 'X']]  # predictors: Treatment + Spending
-y_train = df['Yobs']      # outcome: Engagement Score
-model = LinearRegression().fit(X_train, y_train)
-
-# Add intercept
+# ------------------------------------------
+# Fit statsmodels model (for ATE and coefficients)
+# ------------------------------------------
 df['intercept'] = 1
+sm_model = sm.OLS(df['Yobs'], df[['intercept', 'W', 'X']])
+sm_results = sm_model.fit()
 
-# Fit linear regression model
-model = sm.OLS(df['Yobs'], df[['intercept', 'W', 'X']])
-results = model.fit()
+# Print coefficients for reference
+print(sm_results.summary())
 
-# Display results
-print(results.summary())
-
-
+# ------------------------------------------
+# Flask Prediction Route
+# ------------------------------------------
 @app.route("/predict")
 def predict():
     try:
@@ -40,7 +47,7 @@ def predict():
     except (TypeError, ValueError):
         return jsonify({"error": "Please provide valid numeric values for W and X"}), 400
 
-    y_pred = model.predict([[W, X]])[0]
+    y_pred = sk_model.predict([[W, X]])[0]
 
     try:
         with open("output.txt", "a") as f:
@@ -49,8 +56,14 @@ def predict():
     except Exception as e:
         print("❌ Failed to write to output.txt:", e)
 
-    return jsonify({"W": W, "X": X, "predicted_Yobs": round(y_pred, 2)})
+    return jsonify({
+        "W": W,
+        "X": X,
+        "predicted_Yobs": round(y_pred, 2)
+    })
 
-
+# ------------------------------------------
+# Run the Flask App
+# ------------------------------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=7000, debug=True)
