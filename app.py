@@ -20,6 +20,16 @@ X_train = df[['W', 'X']]  # predictors: Treatment + Spending
 y_train = df['Yobs']      # outcome: Engagement Score
 model = LinearRegression().fit(X_train, y_train)
 
+# Add intercept
+df['intercept'] = 1
+
+# Fit linear regression model
+model = sm.OLS(df['Yobs'], df[['intercept', 'W', 'X']])
+results = model.fit()
+
+# Display results
+print(results.summary())
+
 
 @app.route("/predict")
 def predict():
