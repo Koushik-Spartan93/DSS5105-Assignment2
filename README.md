@@ -20,9 +20,10 @@ Where:
 
 ---
 
-output : 
+output : question 2 
 
 ![image](https://github.com/user-attachments/assets/ece2b720-d853-4ce9-ab15-1c340e957f6c)
+output : question 1 
 
 ![image](https://github.com/user-attachments/assets/fbd2bc6d-6ddf-401b-a447-9040e591d574)
 
