@@ -30,6 +30,9 @@ output : question 1
 b) Report the estimated ATE (ˆ τ) and its statistical significance.
 ![image](https://github.com/user-attachments/assets/416c2c85-a745-4174-b760-9d02e1259a40)
 
+![image](https://github.com/user-attachments/assets/ffb42605-e2f8-4d96-aae2-72e4ef1bfd98)
+
+
 ![Uploading image.png…]()
 
 
