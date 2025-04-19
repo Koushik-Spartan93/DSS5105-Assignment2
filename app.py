@@ -36,6 +36,18 @@ sm_results = sm_model.fit()
 # Print coefficients for reference
 print(sm_results.summary().as_text(), flush=True)
 
+# Extract coefficients
+alpha = results.params['intercept']
+tau   = results.params['W']
+beta  = results.params['X']
+
+# Print model summary and estimated parameters
+print(results.summary())
+print("\nEstimated parameters:")
+print(f"Estimated α (intercept): {alpha:.4f}")
+print(f"Estimated τ (treatment effect / ATE): {tau:.4f}")
+print(f"Estimated β (effect of spending): {beta:.4f}")
+
 # ------------------------------------------
 # Flask Prediction Route
 # ------------------------------------------
