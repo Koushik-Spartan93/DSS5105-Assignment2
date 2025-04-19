@@ -74,6 +74,11 @@ def get_ate():
         "95%_CI": [round(conf_int[0], 3), round(conf_int[1], 3)]
     })
 
+#print(model.summary())
+print("Estimated parameters:")
+print(f"Estimated α (intercept): {alpha:.4f}")
+print(f"Estimated τ (treatment effect / ATE): {tau:.4f}")
+print(f"Estimated β (effect of spending): {beta:.4f}")
 # ------------------------------------------
 # Run the Flask App
 # ------------------------------------------
