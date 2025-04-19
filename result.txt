@@ -1,4 +1,4 @@
-b) Report the estimated ATE (ˆ τ) and its statistical significance.
+Q1.2) Report the estimated ATE (ˆ τ) and its statistical significance.
 
 Interpretation:
 	•	Intercept α = 95.97
@@ -10,7 +10,7 @@ Participating in the carbon offset program is associated with a 9.1-point decrea
 Since the p-value is very small (0.000), this effect is statistically significant at conventional levels.
 
 
-c) Briefly explain under what assumptions ˆ τ can be given a causal interpretation.
+Q1.3) Briefly explain under what assumptions ˆ τ can be given a causal interpretation.
 
 The estimated treatment effect τ can be interpreted causally if the following assumptions hold:
 	1.	Unconfoundedness: There are no unobserved factors that influence both treatment and outcome, after controlling for spending.
@@ -19,3 +19,7 @@ The estimated treatment effect τ can be interpreted causally if the following a
 
 if these are met, τ represents the Average Treatment Effect (ATE).
 
+
+2.3) The predicted engagement score (Ŷᵢ) is 117.16
+
+This value estimates the expected level of stakeholder engagement (or other measured outcome) given the company’s participation in the carbon offset program and their $20K sustainability investment.
