@@ -37,12 +37,12 @@ sm_results = sm_model.fit()
 print(sm_results.summary().as_text(), flush=True)
 
 # Extract coefficients
-alpha = results.params['intercept']
-tau   = results.params['W']
-beta  = results.params['X']
+alpha = sm_results.params['intercept']
+tau   = sm_results.params['W']
+beta  = sm_results.params['X']
 
 # Print model summary and estimated parameters
-print(results.summary())
+print(sm_results.summary())
 print("\nEstimated parameters:")
 print(f"Estimated α (intercept): {alpha:.4f}")
 print(f"Estimated τ (treatment effect / ATE): {tau:.4f}")
@@ -86,11 +86,8 @@ def get_ate():
         "95%_CI": [round(conf_int[0], 3), round(conf_int[1], 3)]
     })
 
-#print(model.summary())
-print("Estimated parameters:")
-print(f"Estimated α (intercept): {alpha:.4f}")
-print(f"Estimated τ (treatment effect / ATE): {tau:.4f}")
-print(f"Estimated β (effect of spending): {beta:.4f}")
+
+
 # ------------------------------------------
 # Run the Flask App
 # ------------------------------------------
